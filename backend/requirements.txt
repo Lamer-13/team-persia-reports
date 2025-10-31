@@ -1,0 +1,4 @@
+Flask
+python-binance
+Flask-Cors
+pandas

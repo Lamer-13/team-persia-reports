@@ -1,0 +1,7 @@
+Flask
+python-binance
+Flask-Cors
+pandas
+Flask-SocketIO
+python-engineio
+python-socketio

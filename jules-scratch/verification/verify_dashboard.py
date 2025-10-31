@@ -6,26 +6,31 @@ def verify_full_dashboard():
         page = browser.new_page()
 
         try:
-            # Increase navigation timeout and wait for network to be idle
             page.goto("http://localhost:3000", timeout=60000, wait_until='networkidle')
-
             page.set_viewport_size({"width": 1600, "height": 900})
 
-            # Increase individual locator timeouts
             timeout = 15000
-            expect(page.get_by_role("heading", name="Crypto Trading Bot Dashboard")).to_be_visible(timeout=timeout)
+            expect(page.locator("text=CryptoTrader")).to_be_visible(timeout=timeout)
+            expect(page.locator("text=Dashboard")).to_be_visible(timeout=timeout)
+            expect(page.locator("text=Bot Management")).to_be_visible(timeout=timeout)
+            expect(page.locator("text=Trade History")).to_be_visible(timeout=timeout)
+
+            # Verify Dashboard Page
             expect(page.get_by_role("heading", name__regex=r"BTCUSDT Chart.*")).to_be_visible(timeout=timeout)
+            page.screenshot(path="jules-scratch/verification/01_dashboard_page.png")
+
+            # Navigate to Bot Management and verify
+            page.locator("text=Bot Management").click()
             expect(page.get_by_role("heading", name="Launch a New Bot")).to_be_visible(timeout=timeout)
             expect(page.get_by_role("heading", name="Active Bots")).to_be_visible(timeout=timeout)
+            page.screenshot(path="jules-scratch/verification/02_bots_page.png")
+
+            # Navigate to Trade History and verify
+            page.locator("text=Trade History").click()
             expect(page.get_by_role("heading", name="Trade History")).to_be_visible(timeout=timeout)
+            page.screenshot(path="jules-scratch/verification/03_history_page.png")
 
-            # Give chart a bit more time to render
-            page.wait_for_timeout(3000)
-
-            screenshot_path = "jules-scratch/verification/full_dashboard.png"
-            page.screenshot(path=screenshot_path)
-
-            print(f"Screenshot saved to {screenshot_path}")
+            print(f"Screenshots saved successfully.")
 
         except Exception as e:
             print(f"An error occurred during verification: {e}")

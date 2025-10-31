@@ -1,0 +1,212 @@
+.App {
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.App-header h1 {
+  margin: 0 0 10px 0;
+  font-size: 2.5rem;
+}
+
+.App-main {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.controls {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+}
+
+.control-group {
+  margin-bottom: 15px;
+}
+
+.control-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #495057;
+}
+
+.control-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 16px;
+  background: white;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  background: #007bff;
+  color: white;
+}
+
+button:hover:not(:disabled) {
+  background: #0056b3;
+}
+
+button:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+button.secondary {
+  background: #6c757d;
+}
+
+button.secondary:hover:not(:disabled) {
+  background: #545b62;
+}
+
+.error {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #f5c6cb;
+  margin: 10px 0;
+}
+
+.report {
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: left;
+}
+
+.report h2 {
+  margin-top: 0;
+  color: #495057;
+}
+
+.report-meta {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.report-content {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 4px;
+  border: 1px solid #dee2e6;
+}
+
+.report-content pre {
+  margin: 0;
+  white-space: pre-wrap;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.satellites-overview {
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.satellites-overview h2 {
+  margin-top: 0;
+  color: #495057;
+}
+
+.satellites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.satellite-card {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+  text-align: left;
+}
+
+.satellite-card h3 {
+  margin: 0 0 10px 0;
+  color: #495057;
+}
+
+.satellite-card p {
+  margin: 0 0 10px 0;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.status {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status.enabled {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status.disabled {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding: 10px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .report-meta {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .satellites-grid {
+    grid-template-columns: 1fr;
+  }
+}
